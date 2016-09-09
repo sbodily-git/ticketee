@@ -23,3 +23,11 @@
       class: "new" %></li>
   </ul>
 </header>
+
+  <ul id="tickets">
+    <% @project.tickets.each do |the_ticket| %>
+      <li>
+        <%= link_to the_ticket.name, [@project, the_ticket] %>
+      </li>
+    <% end %>
+  </ul>
