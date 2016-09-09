@@ -33,6 +33,11 @@ class TicketsController < ApplicationController
     end # if
   end # update
   
+  def destroy
+    @ticket.destroy
+    redirect_to @project, notice: "Ticket has been deleted."
+  end # destroy
+  
 private
 
   def set_project
