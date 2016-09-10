@@ -1,6 +1,9 @@
 /* Get all bootstrap default styles */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "projects";
+@import "tickets";
+@import "responsive";
 
 /* Get some good icons etc. */
 @import "font-awesome";
