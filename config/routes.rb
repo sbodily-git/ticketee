@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "application#index"
-  end
+    resources :projects, only: [:new, :create, :destroy]
+  end # namespace :admin
 
   devise_for :users
+  
   root "projects#index"
   
-  resources :projects do
+  resources :projects, only: [:index, :edit, :update, :show] do
     resources :tickets
   end # projects
 
