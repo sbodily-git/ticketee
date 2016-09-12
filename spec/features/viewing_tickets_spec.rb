@@ -12,6 +12,9 @@ RSpec.feature "Users can view tickets" do
     ie = FactoryGirl.create(:project, name: "Internet Explorer")
     FactoryGirl.create(:ticket, project: ie,
       name: "Standards compliance", description: "Isn't a joke.")
+    login_as(author)
+    assign_role!(author, :viewer, ie)
+    assign_role!(author, :viewer, sublime)
     visit "/"
   end # before
   

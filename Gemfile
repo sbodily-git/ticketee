@@ -29,6 +29,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Devise for authentication and authorization
 gem "devise", "~> 3.4.1"
 
+#
+gem "pundit", "~> 0.3.0"
+
 # Use bootstrap for SCSS styling
 gem "bootstrap-sass", "~> 3.3"
 gem "font-awesome-rails", "~> 4.3"

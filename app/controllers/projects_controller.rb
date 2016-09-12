@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end # index
   
   def show
+    authorize @project, :show?
   end # show
   
   def edit
