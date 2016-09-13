@@ -4,11 +4,13 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = @project.tickets.build
+    authorize @ticket, :create?
   end # new
  
   def create
     @ticket = @project.tickets.build(ticket_params)
     @ticket.author = current_user
+    authorize @ticket, :create?
     
     if @ticket.save
       redirect_to [@project, @ticket], notice: "Ticket has been created."
@@ -19,6 +21,7 @@ class TicketsController < ApplicationController
   end # create
   
   def show
+    authorize @ticket, :show?
   end # show
   
   def edit
