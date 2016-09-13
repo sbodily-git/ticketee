@@ -3,7 +3,11 @@ class ProjectPolicy < ApplicationPolicy
   class Scope < Scope
   
     def resolve
-      scope
+      return scope.none if user.nil?
+      return scope.all if user.admin?
+
+      scope.joins(:roles).where(roles: {user_id: user})
+      # scope is the argument of the policy_scope call
     end # resolve
     
   end # Scope

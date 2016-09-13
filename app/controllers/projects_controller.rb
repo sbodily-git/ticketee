@@ -2,7 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update]
   
   def index
-    @projects = Project.all
+    @projects = policy_scope(Project)
+    # Pundit calls the resolve method of the ProjectPolicy Scope class
   end # index
   
   def show
