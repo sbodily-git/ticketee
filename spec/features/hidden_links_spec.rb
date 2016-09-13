@@ -21,6 +21,11 @@ RSpec.feature "Users can only see the appropriate links" do
       expect(page).not_to have_link "Delete Project"
     end # scenario
     
+    scenario "cannot see the Edit Project link" do
+      visit project_path(the_project)
+      expect(page).not_to have_link "Edit Project"
+    end # scenario
+
   end # context
   
   context "admin users" do
@@ -34,6 +39,11 @@ RSpec.feature "Users can only see the appropriate links" do
     scenario "can see the Delete Project link" do
       visit project_path(the_project)
       expect(page).to have_link "Delete Project"
+    end # scenario
+    
+    scenario "can see the Edit Project link" do
+      visit project_path(the_project)
+      expect(page).to have_link "Edit Project"
     end # scenario
     
   end # context
