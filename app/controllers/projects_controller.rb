@@ -11,9 +11,11 @@ class ProjectsController < ApplicationController
   end # show
   
   def edit
+    authorize @project, :update?
   end # edit
   
   def update 
+    authorize @project, :update?
     if @project.update(project_params)
       redirect_to @project, notice: "Project has been updated."
     else

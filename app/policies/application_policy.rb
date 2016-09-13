@@ -23,8 +23,9 @@ class ApplicationPolicy
   end
 
   def update?
-    false
-  end
+    user.try(:admin?) || record.roles.exists?(user_id: user,
+      role: "manager")
+  end # update?
 
   def edit?
     update?
