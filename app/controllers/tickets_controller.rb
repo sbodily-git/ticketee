@@ -42,6 +42,8 @@ class TicketsController < ApplicationController
   end # update
   
   def destroy
+    authorize @ticket, :destroy?
+    
     @ticket.destroy
     redirect_to @project, notice: "Ticket has been deleted."
   end # destroy
