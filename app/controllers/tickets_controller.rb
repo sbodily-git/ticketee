@@ -59,7 +59,7 @@ private
   end # set_ticket
   
   def ticket_params
-    params.require(:ticket).permit(:name, :description)
+    params.require(:ticket).permit(:name, :description, :attachment)
   end # ticket_params
   
 end # TicketsController
