@@ -25,9 +25,13 @@ class TicketsController < ApplicationController
   end # show
   
   def edit
+    authorize @ticket, :update?
   end # edit
   
   def update
+  
+    authorize @ticket, :update?
+
     if @ticket.update(ticket_params)
       flash[:notice] = "Ticket has been updated."
       redirect_to [@project, @ticket]
