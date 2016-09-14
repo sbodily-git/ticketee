@@ -1,4 +1,9 @@
 class Role < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
-end
+  
+  def self.available_roles
+    %w(manager editor viewer)
+  end # available_roles
+
+end # Role
