@@ -18,6 +18,6 @@ Rails.application.routes.draw do
     resources :tickets
   end # projects
 
-  resources :attachments, only: [:show]
+  resources :attachments, only: [:show, :new]
 
 end # routes.draw
